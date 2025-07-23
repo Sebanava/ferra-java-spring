@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+   <title>Productos</title>
+</head>
+<body>
+   <h2>Productos Disponibles:</h2>
+   
+   <table>
+       <tr>
+           <td th:each="producto : ${productos}">
+               <img th:src="'/images/' + ${#strings.toLowerCase(producto)} + '.webp'" 
+                    th:alt="${producto}" 
+                    width="150" height="150">
+               <p th:text="${producto}"></p>
+               <form method="post" action="/agregar">
+                   <input type="hidden" name="producto" th:value="${producto}">
+                   <button type="submit">Agregar</button>
+               </form>
+           </td>
+       </tr>
+   </table>
+   
+   <br><br>
+   
+   <form action="/inicio_sesion" method="post">
+       <button type="submit">iniciar sesion</button>
+   </form>
+   <form action="/carrito" method="get">
+       <button type="submit">ver carrito</button> 
+   </form>
+</body>
+</html>

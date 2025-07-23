@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio sesion</title>
+</head>
+<body>
+    <form action="/inicio_sesion" method="post">
+        <h1>Iniciar sesion</h1>
+        
+        <label>usuario <input type="text" name="usuario"></label><br><br>
+        <label>contraseña <input type="password" name="contraseña"></label><br><br>   
+        <button type="submit">Iniciar sesion</button> 
+    </form>
+    <div th:if="${mensaje}">
+        <p th:text="${mensaje}"></p>     
+    </div><br><br>
+
+    <form action="/crear_usuario" method="post">
+        <button type="submit">Crear usuario</button>
+    </form>
+    <form action="/productos" method="get">
+        <button type="submit">Comprar sin iniciar sesion</button>
+    </form>
+</body>
+</html>
